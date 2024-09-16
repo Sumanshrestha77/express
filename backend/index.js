@@ -2,13 +2,16 @@ import bodyParser from "body-parser";
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import route from "./routes/userRoute.js";
+import cors from 'cors';  // Import the cors middleware
 
+import route from "./routes/userRoute.js";
 
 // Load environment variables
 dotenv.config();
-
 const app = express();
+
+app.use(cors());
+
 
 // Middleware for parsing JSON requests
 app.use(bodyParser.json());
